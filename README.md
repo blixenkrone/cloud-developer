@@ -6,10 +6,10 @@ course-XX is udacity's own code so i can pull changes if any.
 
 ## OBS
 
-## Project 2
+### Project 2
 
-### has a setTimeout() func, because it's a syncronous function. I modified it to accept a single file instead of an array, because the task didn't specify, that you could send an entire array as headers. Otherwise I would suggest a POST req. with a body containing an array of URL's to be parsed. Code is working, but is not suitable for production :-)
+ has a setTimeout() func, because it's a syncronous function. I modified it to accept a single file instead of an array, because the task didn't specify, that you could send an entire array as headers. Otherwise I would suggest a POST req. with a body containing an array of URL's to be parsed. Code is working, but is not suitable for production :-)
 
 ### endpoint is: http://development.eba-p3mjry2z.eu-north-1.elasticbeanstalk.com/
 
-### remember to set image_url query parameter.
+remember to set image_url query parameter.
