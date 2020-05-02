@@ -37,3 +37,4 @@ venv/
 .vscode
 *.env
 set_env.sh
+projects/project3/set_env.sh
