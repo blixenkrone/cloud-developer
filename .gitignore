@@ -36,3 +36,4 @@ node_modules
 venv/
 .vscode
 *.env
+projects/project3/set_env.sh

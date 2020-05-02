@@ -16,5 +16,4 @@ See screenshots
 
 remember to set image_url query parameter.
 
-
 ### Project 3 Monolith to Microservices
