@@ -6,14 +6,11 @@ import { IndexRouter } from './controllers/v0/index.router';
 
 import bodyParser from 'body-parser';
 import { config } from './config/config';
-import { V0_FEED_MODELS, V0_USER_MODELS } from './controllers/v0/model.index';
-import Bluebird from 'bluebird';
-
+import { V0_FEED_MODELS } from './controllers/v0/model.index';
 
 (async () => {
   sequelize.addModels(V0_FEED_MODELS);
-  sequelize.addModels(V0_USER_MODELS);
-  const b = await sequelize.sync();
+  await sequelize.sync();
 
   const app = express();
   const port = process.env.PORT || 8080;
