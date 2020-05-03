@@ -17,3 +17,4 @@ See screenshots
 remember to set image_url query parameter.
 
 ### Project 3 Monolith to Microservices
+- create and fill a .env file with the same variables as your set_env.sh, then you can try the project with docker-compose.

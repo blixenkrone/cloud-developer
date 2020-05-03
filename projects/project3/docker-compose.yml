@@ -3,17 +3,19 @@ version: "3.7"
 services:
   user-api:
     build:
-      context: ./api
+      context: ./api/feed-service
       dockerfile: Dockerfile
     ports:
       - 8080:8080
+    env_file: .env
 
   feed-api:
     build:
-      context: ./api
+      context: ./api/users-service
       dockerfile: Dockerfile
     ports:
-      - 8081:8081
+      - 8080:8080
+    env_file: .env
 
   frontend:
     build:
@@ -24,8 +26,6 @@ services:
 
   proxy:
     image: nginx:latest
-
-
 # #for testing postgres locally because AWS didn't give me their free-tier access to their RDB service.
 #   postgres:
 #     image: postgres:latest
