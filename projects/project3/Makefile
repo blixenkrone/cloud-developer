@@ -1,4 +1,15 @@
-.PHONY: api frontend fix_audit
+.PHONY: docker build clean feed-api users-api frontend fix_audit
+
+docker:
+	docker-compose up
+
+api=feed
+build:
+	cd ./api/${api}-service/ && npm run build
+
+clean:
+	rm -rf ./api/users-service/node_modules \
+	&& cd ./api/${api}-service/ && npm run clean
 
 feed-api:
 	cd ./api/feed-service/ && npm run dev

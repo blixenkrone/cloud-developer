@@ -1,12 +1,38 @@
 version: "3.7"
 
 services:
-  postgres:
-    image: postgres:latest
-    restart: always
-    environment:
-      POSTGRES_PASSWORD: example
-      POSTGRES_USER: postgres
-      POSTGRES_DB: postgres
+  user-api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
     ports:
-      - 5432:5432
+      - 8080:8080
+
+  feed-api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - 8081:8081
+
+  frontend:
+    build:
+      context: ./udagram-frontend
+      dockerfile: Dockerfile
+    ports:
+      - 8081:8081
+
+  proxy:
+    image: nginx:latest
+
+
+# #for testing postgres locally because AWS didn't give me their free-tier access to their RDB service.
+#   postgres:
+#     image: postgres:latest
+#     restart: always
+#     environment:
+#       POSTGRES_PASSWORD: example
+#       POSTGRES_USER: postgres
+#       POSTGRES_DB: postgres
+#     ports:
+#       - 5432:5432
