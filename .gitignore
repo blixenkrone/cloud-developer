@@ -35,3 +35,6 @@ UserInterfaceState.xcuserstate
 node_modules
 venv/
 .vscode
+projects/project3/.env
+projects/project3/set_env.sh
+projects/project2/.elasticbeanstalk/config.yml
