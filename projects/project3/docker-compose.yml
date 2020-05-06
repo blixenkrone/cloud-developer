@@ -2,7 +2,6 @@ version: "3.7"
 
 services:
   feed-api:
-    container_name: feed-api
     build:
       context: ./api/feed-service
       dockerfile: Dockerfile
@@ -23,10 +22,9 @@ services:
       context: ./udagram-frontend
       dockerfile: Dockerfile
     ports:
-      - 8100:80
-      # - 8100:443
-    volumes:
-      - ./udagram-frontend/nginx.conf:/etc/nginx/nginx.conf
+      - 8100:8100
+    # volumes:
+    #   - ./udagram-frontend/nginx.conf:/etc/nginx/nginx.conf
     depends_on:
       - feed-api
       - users-api
