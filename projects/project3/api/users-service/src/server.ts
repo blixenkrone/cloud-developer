@@ -4,14 +4,14 @@ import { sequelize } from './sequelize';
 import { IndexRouter } from './controllers/v0/index.router';
 import bodyParser from 'body-parser';
 import { config } from './config/config';
-import { V0_FEED_MODELS } from './controllers/v0/model.index';
+import { V0_USER_MODELS } from './controllers/v0/model.index';
 
 (async () => {
-  sequelize.addModels(V0_FEED_MODELS);
+  sequelize.addModels(V0_USER_MODELS);
   await sequelize.sync();
 
   const app = express();
-  const port = process.env.PORT || 8080;
+  const port = process.env.PORT || 8081;
 
   app.use(bodyParser.json());
 
@@ -29,7 +29,7 @@ import { V0_FEED_MODELS } from './controllers/v0/model.index';
 
   // Root URI call
   app.get('/', async (req, res) => {
-    res.send('feed api');
+    res.send('users api');
   });
 
 

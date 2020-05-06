@@ -1,15 +1,14 @@
+
 FROM node:12
 
-ENV HOME=/home/udagram/
+COPY package*.json /app/
 
-COPY package*.json $HOME/app/
+COPY www /app/www/
 
-COPY src/ $HOME/app/src
-
-WORKDIR $HOME/app
+WORKDIR /app
 
 RUN npm install
 
 COPY . .
 
-CMD ["node", "server.js"]
+CMD ["node", "./www/server.js"]
