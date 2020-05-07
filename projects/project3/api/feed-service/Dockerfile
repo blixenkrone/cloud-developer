@@ -10,4 +10,6 @@ RUN npm install
 
 COPY . .
 
+EXPOSE 8080
+
 CMD ["node", "./www/server.js"]
