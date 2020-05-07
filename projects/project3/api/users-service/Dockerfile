@@ -1,4 +1,3 @@
-
 FROM node:12
 
 COPY package*.json /app/
@@ -10,5 +9,7 @@ WORKDIR /app
 RUN npm install
 
 COPY . .
+
+EXPOSE 8081
 
 CMD ["node", "./www/server.js"]

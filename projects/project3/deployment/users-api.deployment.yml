@@ -15,7 +15,11 @@ spec:
         app: users-api
     spec:
       containers:
-      - name: users-api
-        image: byblix/project3_users-api:latest
-        ports:
-        - containerPort: 8081
+        - name: users-api
+          image: byblix/project3_users-api:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8081
+          envFrom:
+            - secretRef:
+                name: k8s-variables

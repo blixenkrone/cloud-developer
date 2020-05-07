@@ -15,7 +15,11 @@ spec:
         app: feed-api
     spec:
       containers:
-      - name: feed-api
-        image: byblix/project3_feed-api:latest
-        ports:
-        - containerPort: 8080
+        - name: feed-api
+          image: byblix/project3_feed-api:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - secretRef:
+                name: k8s-variables
