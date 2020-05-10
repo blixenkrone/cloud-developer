@@ -1,0 +1,30 @@
+name: project 3 build pipe
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  build:
+    name: Build pro app
+    runs-on: ubuntu-latest
+    steps:
+      - continue-on-error: false
+      - uses: actions/checkout@v2
+
+      - name: Login to DockerHub Registry
+        run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+
+      - name: Build the Docker image
+        run: |
+          docker build --rm -f "./udagram-frontend/Dockerfile" -t byblix/project3_frontend:latest .
+          docker build --rm -f "./api/feed-service/Dockerfile" -t byblix/project3_feed-api:latest .
+          docker build --rm -f "./api/users-service/Dockerfile" -t byblix/project3_users-api:latest .
+
+      - name: Push the Docker image to the registry
+        run: |
+          docker push byblix/project3_frontend:latest
+          docker push byblix/project3_feed-api:latest
+          docker push byblix/project3_users-api:latest
