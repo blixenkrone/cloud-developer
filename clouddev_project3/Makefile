@@ -1,4 +1,11 @@
-.PHONY: docker_up docker_down build clean feed-api users-api build_frontend
+.PHONY: docker_up docker_down clean feed-api users-api frontend
+
+pre:
+	make build_frontend \
+	&& make install api=feed \
+	&& make build api=feed \
+	&& make install api=users \
+	&& make build api=users
 
 docker_up:
 	docker-compose up ${arg}
@@ -27,7 +34,7 @@ users-api:
 	cd ./api/users-service/ && npm run dev
 
 build_frontend:
-	cd ./udagram-frontend && ionic build
+	cd ./udagram-frontend && npm install && ionic build
 
 frontend:
 	cd ./udagram-frontend && ionic serve
